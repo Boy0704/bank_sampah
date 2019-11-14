@@ -74,12 +74,21 @@ class App extends CI_Controller {
 			);
 			$this->load->view('v_index',$data);
 		} else {
+			date_default_timezone_set('Asia/Jakarta');
 			$id_user = $_POST['id_anggota'];
 			$penarikan = $_POST['penarikan'];
 
-			$sisa = ambil_field_tabel('tabungan','id_user',$id_user,'tabungan') - $penarikan;
-			$this->db->where('id_user',$id_user);
-			$this->db->update('tabungan',array('tabungan'=>$sisa));
+			$data = array(
+				'id_anggota'=>$id_user,
+				'tanggal'=>date('Y-m-d H:i:s'),
+				'jumlah'=>$penarikan
+			);
+
+			// $sisa = ambil_field_tabel('tabungan','id_user',$id_user,'tabungan') - $penarikan;
+			// $this->db->where('id_user',$id_user);
+			// $this->db->update('tabungan',array('tabungan'=>$sisa));
+			$this->db->insert('penarikan', $data);
+
 			?>
 			<script>
 				alert('Penarikan Tabungan Berhasil');

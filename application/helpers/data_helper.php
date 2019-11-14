@@ -38,7 +38,14 @@ function total_tabungan($id_user)
 {
     $CI =& get_instance();
     $data = $CI->db->query("SELECT SUM(total) AS total_tabungan FROM pembelian WHERE tabungan='ya' AND id_anggota='$id_user'")->row();
-    return $data->total_tabungan;
+    return $data->total_tabungan - total_penarikan($id_user);
+}
+
+function total_penarikan($id_user)
+{
+    $CI =& get_instance();
+    $data = $CI->db->query("SELECT SUM(jumlah) AS total_penarikan FROM penarikan WHERE id_anggota='$id_user'")->row();
+    return $data->total_penarikan;
 }
 
 function ambil_field_tabel($nama_tabel,$primary,$idnya,$nama_field)
