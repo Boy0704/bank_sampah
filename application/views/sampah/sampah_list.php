@@ -34,9 +34,9 @@
         <th>Kode</th>
         <th>Nama Sampah</th>
         <th>Jenis Sampah</th>
-        <th>Harga Beli</th>
+        <!-- <th>Harga Beli</th>
         <th>Harga Jual</th>
-        <th>Stok</th>
+        <th>Stok</th> -->
         <th>Action</th>
             </tr><?php
             foreach ($sampah_data as $sampah)
@@ -47,9 +47,9 @@
             <td><?php echo "KD0".$sampah->id_sampah ?></td>
             <td><?php echo $sampah->nama_sampah ?></td>
             <td><?php echo ambil_field_tabel('jenis_sampah','id_jenis',$sampah->id_jenis,'jenis_sampah') ?></td>
-            <td><?php echo $sampah->harga_beli ?></td>
+            <!-- <td><?php echo $sampah->harga_beli ?></td>
             <td><?php echo $sampah->harga_jual ?></td>
-            <td><?php echo $sampah->stok ?></td>
+            <td><?php echo $sampah->stok ?></td> -->
             <td style="text-align:center" width="200px">
                 <?php 
                  

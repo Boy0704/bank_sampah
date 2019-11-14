@@ -25,6 +25,20 @@ class App extends CI_Controller {
 		$this->load->view('v_index',$data);
 	}
 
+	public function detail_tabungan($id_anggota)
+	{
+		if ($this->session->userdata('level') == NULL && $this->session->userdata('username') == NULL) {
+			redirect('app/login','refresh');
+		}
+		$data = array(
+			'konten' => 'detail_tabungan',
+			'judul' => 'Detail Tabungan',
+		);
+		$this->load->view('v_index',$data);
+	}
+
+
+
 	function cekharga_beli($id)
 	{
 		echo ambil_field_tabel('sampah','id_sampah',$id,'harga_beli');
@@ -122,6 +136,14 @@ class App extends CI_Controller {
 			redirect('app/login','refresh');
 		}
 		$this->load->view('cetak_nasabah');
+	}
+
+	public function lap_tabungan($id_anggota)
+	{
+		if ($this->session->userdata('level') == NULL && $this->session->userdata('username') == NULL) {
+			redirect('app/login','refresh');
+		}
+		$this->load->view('cetak_tabungan');
 	}
 
 	public function lap_sampah()

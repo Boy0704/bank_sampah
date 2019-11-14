@@ -3,17 +3,14 @@
         	<thead>
             <tr>
                 <th>No</th>
-		        <th>No Transaksi</th>
-		        <th>Sampah</th>
-		        <th>Tanggal</th>
 		        <th>No Anggota</th>
-		        <th>Berat</th>
-		        <th>Total</th>
-		        <th>Tabungan</th>
+                <th>Tabungan</th>
+		        <th>Option</th>
             </tr>
             </thead>
             <tbody><?php
             $start = 0;
+            $this->db->group_by('id_anggota');
             $pembelian_data = $this->db->get_where('pembelian', array('tabungan' => 'ya'))->result();
             foreach ($pembelian_data as $pembelian)
             {
@@ -21,13 +18,12 @@
 
                 <tr>
             <td width="80px"><?php echo ++$start ?></td>
-            <td><?php echo 'BELI00'.$pembelian->id_pembelian ?></td>
-            <td><?php echo  ambil_field_tabel('sampah','id_sampah',$pembelian->id_sampah,'nama_sampah')  ?></td>
-            <td><?php echo $pembelian->tanggal ?></td>
             <td><?php echo 'AGT00'.$pembelian->id_anggota.'-'.ambil_field_tabel('anggota','id_anggota',$pembelian->id_anggota,'nama_anggota') ?></td>
-            <td><?php echo $pembelian->berat ?></td>
-            <td><?php echo $pembelian->total ?></td>
-            <td><?php echo $pembelian->tabungan ?></td>
+            <td><b><?php echo "Rp. ". number_format(total_tabungan($pembelian->id_anggota));?></b></td>
+            <td>
+                <a href="app/detail_tabungan/<?php echo $pembelian->id_anggota ?>"><span class="label label-info">Detail</span></a>
+                <a href="app/lap_tabungan/<?php echo $pembelian->id_anggota ?>" target="_blank"><span class="label label-success">Cetak Tabungan</span></a>
+            </td>
             
         </tr>
                 <?php
