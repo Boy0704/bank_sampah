@@ -27,6 +27,7 @@
             <label for="varchar">Level <?php echo form_error('level') ?></label>
             <input type="text" class="form-control" name="level" id="level" placeholder="Level" value="<?php echo $level; ?>" />
         </div> -->
+        <input type="hidden" name="level" value="anggota">
         <input type="hidden" name="id_anggota" value="<?php echo $id_anggota; ?>" /> 
         <button type="submit" class="btn btn-primary"><?php echo $button ?></button> 
         <a href="<?php echo site_url('anggota') ?>" class="btn btn-default">Cancel</a>

@@ -1,5 +1,18 @@
 <?php   
 
+function total_penjualan()
+{
+    $CI =& get_instance();
+    $data = $CI->db->query("SELECT SUM(total) AS total_penjualan FROM penjualan  ")->row()->total_penjualan;
+    return $data;
+}
+function total_pembelian()
+{
+    $CI =& get_instance();
+    $data = $CI->db->query("SELECT SUM(total) AS total_pembelian FROM pembelian  ")->row()->total_pembelian;
+    return $data;
+}
+
 function tanggal_indo($tanggal, $cetak_hari = false)
 {
     $hari = array ( 1 =>    'Senin',

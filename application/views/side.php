@@ -78,6 +78,9 @@
         
         
         <li><a href="anggota"><i class="fa fa-user"></i> <span>Data Nasabah</span></a></li>
+        <li><a href="penjualan"><i class="fa fa-list"></i> <span>Data Penjualan</span></a></li>
+        <li><a href="app/pengelola"><i class="fa fa-list"></i> <span>Data Pengelola</span></a></li>
+        <li><a href="app/persentase_keuntungan"><i class="fa fa-list"></i> <span>Persentase Keuntungan</span></a></li>
         <li><a href="user"><i class="fa fa-users"></i> <span>Manajemen User</span></a></li>
       <?php } elseif ($this->session->userdata('level') == 'anggota') { ?>
          <li><a href="app"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>

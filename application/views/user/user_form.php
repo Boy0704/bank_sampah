@@ -43,6 +43,10 @@
             ?>
         </div>
         <div class="form-group">
+            <label>Jabatan Pengelola</label>
+            <input type="text" name="jabatan" class="form-control" value="<?php echo $jabatan ?>">
+        </div>
+        <div class="form-group">
             <div class="form-line">
             <label for="varchar">Level </label>
             <!-- <input type="text" class="form-control" name="level" id="level" placeholder="Level" value="<?php echo $level; ?>" /> -->

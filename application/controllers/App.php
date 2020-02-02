@@ -11,7 +11,35 @@ class App extends CI_Controller {
     }
 	
 
-	
+	public function pengelola()
+	{
+		$data = array(
+			'konten' => 'pengelola',
+			'judul' => 'Data Pengelola',
+		);
+		$this->load->view('v_index',$data);
+	}
+
+	public function persentase_keuntungan()
+	{
+		if ($_POST != NULL) {
+			$data = array(
+				'konten' => 'persentase_keuntungan',
+				'judul' => 'Data Persentase Keuntungan',
+				'nasabah' => $this->input->post('nasabah'),
+				'pengelola' => $this->input->post('pengelola'),
+			);
+			$this->load->view('v_index',$data);
+		} else {
+			$data = array(
+				'konten' => 'persentase_keuntungan',
+				'judul' => 'Data Persentase Keuntungan',
+				'nasabah' => 60,
+				'pengelola' => 70,
+			);
+			$this->load->view('v_index',$data);
+		}
+	}
 
 	public function index()
 	{

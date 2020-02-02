@@ -37,6 +37,7 @@
         <th>Username</th>
         <th>Email</th>
         <th>Foto User</th>
+        <th>Jabatan</th>
         <th>Level</th>
         <th>Action</th>
             </tr><?php
@@ -50,6 +51,7 @@
             <td><?php echo $user->email ?></td>
             <td><img src="image/user/<?php echo $user->foto_user ?>" style="width: 100px; height: 100px;"></td>
             <td><?php echo $user->level ?></td>
+            <td><?php echo $user->jabatan ?></td>
             <td style="text-align:center" width="200px">
                 <?php 
                 echo anchor(site_url('user/update/'.$user->id_user),'<button class="btn btn-sm btn-info"><i class="fa fa-pencil"></i></button>'); 

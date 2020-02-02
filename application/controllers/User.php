@@ -59,7 +59,8 @@ class User extends CI_Controller
 		'password' => $row->password,
 		'email' => $row->email,
 		'foto_user' => $row->foto_user,
-		'level' => $row->level,
+        'level' => $row->level,
+		'jabatan' => $row->jabatan,
 	    );
             $this->load->view('user/user_read', $data);
         } else {
@@ -79,7 +80,8 @@ class User extends CI_Controller
 	    'password' => set_value('password'),
 	    'email' => set_value('email'),
 	    'foto_user' => set_value('foto_user'),
-	    'level' => set_value('level'),
+        'level' => set_value('level'),
+	    'jabatan' => set_value('jabatan'),
         'konten' => 'user/user_form',
             'judul' => 'Data User',
 	);
@@ -111,7 +113,8 @@ class User extends CI_Controller
 		'password' => $this->input->post('password',TRUE),
 		'email' => $this->input->post('email',TRUE),
 		'foto_user' => $dfile,
-		'level' => $this->input->post('level',TRUE),
+        'level' => $this->input->post('level',TRUE),
+		'jabatan' => $this->input->post('jabatan',TRUE),
 	    );
 
             $this->User_model->insert($data);
@@ -134,7 +137,8 @@ class User extends CI_Controller
 		'password' => set_value('password', $row->password),
 		'email' => set_value('email', $row->email),
 		'foto_user' => set_value('foto_user', $row->foto_user),
-		'level' => set_value('level', $row->level),
+        'level' => set_value('level', $row->level),
+		'jabatan' => set_value('jabatan', $row->jabatan),
         'konten' => 'user/user_form',
             'judul' => 'Data User',
 	    );
@@ -160,6 +164,7 @@ class User extends CI_Controller
             'password' => $this->input->post('password',TRUE),
             'email' => $this->input->post('email',TRUE),
             'level' => $this->input->post('level',TRUE),
+            'jabatan' => $this->input->post('jabatan',TRUE),
             );
 
                 $this->User_model->update($this->input->post('id_user', TRUE), $data);
@@ -187,6 +192,7 @@ class User extends CI_Controller
             'email' => $this->input->post('email',TRUE),
             'foto_user' => $dfile,
             'level' => $this->input->post('level',TRUE),
+            'jabatan' => $this->input->post('jabatan',TRUE),
             );
 
                 $this->User_model->update($this->input->post('id_user', TRUE), $data);
