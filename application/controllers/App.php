@@ -35,7 +35,7 @@ class App extends CI_Controller {
 				'konten' => 'persentase_keuntungan',
 				'judul' => 'Data Persentase Keuntungan',
 				'nasabah' => 60,
-				'pengelola' => 70,
+				'pengelola' => 40,
 			);
 			$this->load->view('v_index',$data);
 		}
