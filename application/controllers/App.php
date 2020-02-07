@@ -23,19 +23,18 @@ class App extends CI_Controller {
 	public function persentase_keuntungan()
 	{
 		if ($_POST != NULL) {
+			$this->db->where('id', 1);
+			$this->db->update('persentase', $_POST);
 			$data = array(
 				'konten' => 'persentase_keuntungan',
 				'judul' => 'Data Persentase Keuntungan',
-				'nasabah' => $this->input->post('nasabah'),
-				'pengelola' => $this->input->post('pengelola'),
+				
 			);
 			$this->load->view('v_index',$data);
 		} else {
 			$data = array(
 				'konten' => 'persentase_keuntungan',
 				'judul' => 'Data Persentase Keuntungan',
-				'nasabah' => 60,
-				'pengelola' => 40,
 			);
 			$this->load->view('v_index',$data);
 		}
